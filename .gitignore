@@ -1,16 +1,22 @@
-# Python cache and bytecode
-__pycache__/
-*.py[cod]
-*.pyo
-
-# Virtual environment
-.venv/
-
-# Environment variables
+# Environment
 .env
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
 
-# Jupyter
+# Data — raw and processed files are NOT committed to git
+# (too large, regeneratable via scripts)
+data/raw/
+data/processed/
+
+# External data can be committed if small (< 1MB)
+# data/external/   ← intentionally not ignored
+
+# Jupyter checkpoints
 .ipynb_checkpoints/
 
-# Tooling caches
-.ruff_cache/
+# Build artifacts
+dist/
+*.egg-info/
