@@ -70,7 +70,7 @@ def fetch_district_weather(
                 raise RuntimeError(
                     f"Failed to fetch {district} after {retries} attempts: {e}"
                 )
-            time.sleep(10 ** attempt)  # exponential backoff: 2s, 4s, 8s
+            time.sleep(5 ** attempt)  # exponential backoff: 2s, 4s, 8s
 
     daily = data["daily"]
     df = pd.DataFrame({"date": pd.to_datetime(daily["time"])})
@@ -129,7 +129,7 @@ def fetch_all_districts(
                 tqdm.write(f"  ✅ {district} — {len(df):,} days saved")
 
             all_frames.append(df)
-            time.sleep(5)  # be polite to the API
+            time.sleep(2)  # be polite to the API
 
         except RuntimeError as e:
             tqdm.write(f"  ❌ {e}")
